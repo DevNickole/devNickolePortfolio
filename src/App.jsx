@@ -40,7 +40,9 @@ const projects = [
 		fullDescription:
 			"BNS Assist is a comprehensive healthcare platform designed to streamline barangay-level health operations. The system features dedicated portals for administrators, healthcare workers (BNS), and residents. It handles patient records, nutrition tracking, vaccine logs, child and maternal health monitoring, and real-time reporting. Built with Next.js for performance and Firebase for authentication and real-time data syncing, this project empowers local communities with accessible health tech.",
 		image: bnsProjectPicture,
-		link: "https://bns-assist.example.com", // Replace with your actual deployment link or repo
+		repo: "https://ta-aral.example.com",
+		live: "sample", // Replace with your actual deployment link or repo
+		isRepoPrivate: true,
 	},
 
 	{
@@ -51,7 +53,9 @@ const projects = [
 		fullDescription:
 			"This hospital system is tailored for medium to large-scale healthcare facilities, providing digital infrastructure for patient admission, discharge summaries, doctor/nurse scheduling, lab report uploads, and automated billing. It includes secure access roles (admin, doctor, staff) and supports analytics dashboards for occupancy rates and patient trends. Real-time updates are enabled via Firebase, and MongoDB handles structured medical records.",
 		image: bnsProjectPicture, // You can change to hospitalProjectPicture
-		link: "https://hospital-system.example.com",
+		repo: "https://ta-aral.example.com",
+		live: "sample",
+		isRepoPrivate: true,
 	},
 
 	{
@@ -62,7 +66,9 @@ const projects = [
 		fullDescription:
 			"Ta-Aral is a learning support platform that connects students with peer tutors in real time. It allows learners to book sessions, rate tutors, and earn token-based incentives that can be redeemed for extra resources or perks. The backend is powered by Django with PostgreSQL for relational data handling, while Firebase is used for authentication and real-time notifications. It’s designed to promote collaborative learning and academic engagement.",
 		image: taAralProjectPicture,
-		link: "https://ta-aral.example.com",
+		repo: "https://ta-aral.example.com",
+		live: "sample",
+		isRepoPrivate: true,
 	},
 ];
 
@@ -564,7 +570,7 @@ export default function App() {
 					initial={{ opacity: 0, y: 40 }}
 					animate={{ opacity: 1, y: 0 }}
 					transition={{ duration: 0.6 }}
-					className="space-y-10 p-8 bg-gray-50 rounded-xl shadow-lg border border-gray-200"
+					className="h-[100vh] overflow-x-auto space-y-10 p-8 bg-gray-50 rounded-xl shadow-lg border border-gray-200"
 				>
 					<h2 className="text-3xl md:text-4xl font-bold text-green-600">
 						{selectedProject.title}
@@ -573,13 +579,14 @@ export default function App() {
 					<img
 						src={selectedProject.image}
 						alt={selectedProject.title}
-						className="w-full h-64 object-cover rounded-lg shadow"
+						className="w-full h-fit object-cover rounded-lg shadow"
 					/>
 
 					<p className="text-gray-700 text-lg leading-relaxed">
 						{selectedProject.fullDescription || selectedProject.description}
 					</p>
 
+					{/* Tech Stack */}
 					<div className="flex flex-wrap gap-2">
 						{selectedProject.stack.map((tech, i) => (
 							<span
@@ -589,6 +596,36 @@ export default function App() {
 								{tech}
 							</span>
 						))}
+					</div>
+
+					{/* Links Section */}
+					<div className="flex gap-4 pt-4">
+						{selectedProject.repo && !selectedProject.isRepoPrivate && (
+							<a
+								href={selectedProject.repo}
+								target="_blank"
+								rel="noopener noreferrer"
+								className="inline-flex items-center gap-2 text-sm font-semibold text-green-600 hover:text-green-800 transition"
+							>
+								🔗 View Repository
+							</a>
+						)}
+
+						{selectedProject.isRepoPrivate && (
+							<div className="inline-flex items-center gap-2 text-sm font-medium text-gray-600 border border-gray-300 px-4 py-2 rounded-md bg-gray-100">
+								🔒 Private Repository — access available upon request
+							</div>
+						)}
+						{selectedProject.live && (
+							<a
+								href={selectedProject.live}
+								target="_blank"
+								rel="noopener noreferrer"
+								className="inline-flex items-center gap-2 text-sm font-semibold text-green-600 hover:text-green-800 transition"
+							>
+								🌐 Visit Live Site
+							</a>
+						)}
 					</div>
 
 					<div className="pt-6">
