@@ -6,6 +6,7 @@ import profile from "/profile.jpg";
 
 import bnsProjectPicture from "/bnsProjectPicture.png";
 import taAralProjectPicture from "/taAralProjectPicture.png";
+import todoApp from "/todoApp.png";
 import {
 	FaHtml5,
 	FaCss3Alt,
@@ -13,6 +14,7 @@ import {
 	FaReact,
 	FaNodeJs,
 	FaGitAlt,
+	FaGithub,
 	FaDatabase,
 	FaPython,
 	FaPhp,
@@ -20,6 +22,7 @@ import {
 	FaReacteurope,
 	FaJava as FaJavaIcon,
 	FaCode,
+	FaFigma,
 } from "react-icons/fa";
 
 import {
@@ -30,7 +33,9 @@ import {
 	SiDjango,
 } from "react-icons/si";
 import { FiCopy } from "react-icons/fi";
-
+import { PiRobotBold } from "react-icons/pi";
+import { DiVisualstudio } from "react-icons/di";
+import ContactMe from "./ContactMe";
 const projects = [
 	{
 		title: "BNS Assist",
@@ -40,21 +45,8 @@ const projects = [
 		fullDescription:
 			"BNS Assist is a comprehensive healthcare platform designed to streamline barangay-level health operations. The system features dedicated portals for administrators, healthcare workers (BNS), and residents. It handles patient records, nutrition tracking, vaccine logs, child and maternal health monitoring, and real-time reporting. Built with Next.js for performance and Firebase for authentication and real-time data syncing, this project empowers local communities with accessible health tech.",
 		image: bnsProjectPicture,
-		repo: "https://ta-aral.example.com",
-		live: "sample", // Replace with your actual deployment link or repo
-		isRepoPrivate: true,
-	},
-
-	{
-		title: "Modern Hospital Management",
-		stack: ["Next.js", "MongoDB", "React", "Firebase", "Tailwind CSS"],
-		description:
-			"A modern hospital management system handling patient records, medical reports, and personnel schedules.",
-		fullDescription:
-			"This hospital system is tailored for medium to large-scale healthcare facilities, providing digital infrastructure for patient admission, discharge summaries, doctor/nurse scheduling, lab report uploads, and automated billing. It includes secure access roles (admin, doctor, staff) and supports analytics dashboards for occupancy rates and patient trends. Real-time updates are enabled via Firebase, and MongoDB handles structured medical records.",
-		image: bnsProjectPicture, // You can change to hospitalProjectPicture
-		repo: "https://ta-aral.example.com",
-		live: "sample",
+		repo: "",
+		live: "https://bns-assist.vercel.app/",
 		isRepoPrivate: true,
 	},
 
@@ -67,7 +59,20 @@ const projects = [
 			"Ta-Aral is a learning support platform that connects students with peer tutors in real time. It allows learners to book sessions, rate tutors, and earn token-based incentives that can be redeemed for extra resources or perks. The backend is powered by Django with PostgreSQL for relational data handling, while Firebase is used for authentication and real-time notifications. It’s designed to promote collaborative learning and academic engagement.",
 		image: taAralProjectPicture,
 		repo: "https://ta-aral.example.com",
-		live: "sample",
+		live: "https://ta-aral-m5rg.vercel.app",
+		isRepoPrivate: true,
+	},
+
+	{
+		title: "Simple Todo App",
+		stack: ["Next.js", "Typescript", "Firebase", "Tailwind CSS"],
+		description:
+			"A next js todo web application using firebase with realtime changes.",
+		fullDescription:
+			"This Simple Todo App is built using Next.js, Firebase, and Tailwind CSS. It features a clean and responsive UI where users can add, edit, delete, and mark tasks as completed. Firebase Realtime Database ensures instant syncing of todos across sessions and devices. It supports authentication, enabling personal task management per user. The app is ideal for individuals who need a lightweight and efficient way to manage daily tasks, with modern frontend performance and real-time backend integration.",
+		image: todoApp,
+		repo: "https://ta-aral.example.com",
+		live: "https://todoapp-d5ch.vercel.app/",
 		isRepoPrivate: true,
 	},
 ];
@@ -110,9 +115,20 @@ const skills = [
 	{ name: "PHP", icon: <FaPhp className="text-indigo-500 text-2xl" /> },
 	{ name: "C#", icon: <FaCode className="text-purple-600 text-2xl" /> },
 	{ name: "Java", icon: <FaJavaIcon className="text-red-600 text-2xl" /> },
+];
 
-	// Tools
+const toolsAndPlatforms = [
 	{ name: "Git", icon: <FaGitAlt className="text-orange-500 text-2xl" /> },
+	{ name: "GitHub", icon: <FaGithub className="text-black text-2xl" /> },
+	{
+		name: "VS Code",
+		icon: <DiVisualstudio className="text-blue-600 text-2xl" />,
+	},
+	{ name: "Figma", icon: <FaFigma className="text-pink-500 text-2xl" /> },
+	{
+		name: "ChatGPT",
+		icon: <PiRobotBold className="text-green-600 text-2xl" />,
+	},
 ];
 
 const itemVariants = {
@@ -188,17 +204,18 @@ export default function App() {
 							</nav>
 
 							{/* Contact Button */}
-							<motion.button
+							<motion.a
+								href="#contactme"
 								whileHover={{
 									scale: 1.1,
 									boxShadow: "0 0 12px rgba(34, 197, 94, 0.5)",
 								}}
 								transition={{ type: "spring", stiffness: 200, damping: 10 }}
-								className="bg-green-500 hover:bg-green-600 text-white p-2 rounded-full shadow-md"
+								className="bg-green-500 hover:bg-green-600 text-white p-2 rounded-full shadow-md inline-flex items-center justify-center"
 								aria-label="Contact Me"
 							>
-								<MessageCircle />
-							</motion.button>
+								<MessageCircle className="w-5 h-5" />
+							</motion.a>
 						</header>
 
 						<main className="">
@@ -224,20 +241,20 @@ export default function App() {
 									</h1>
 
 									<p className="mt-6 text-gray-700 text-lg">
-										I'm <strong className="text-gray-900">Dave</strong>, a full
-										stack developer based in the Philippines. I specialize in
-										crafting clean, responsive, and maintainable applications
-										that solve real-world problems.
+										I'm <strong className="text-gray-900">Dave</strong>, a web
+										developer based in the Philippines. I specialize in crafting
+										clean, and maintainable applications that solve real-world
+										problems.
 									</p>
 
 									<div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-6">
-										<motion.button
+										<motion.a
+											href="#contactme"
 											whileHover={{ scale: 1.05 }}
-											className="bg-green-600 text-white px-6 py-3 rounded-full font-semibold shadow hover:bg-green-700 transition"
+											className="bg-green-600 text-white px-6 py-3 rounded-full font-semibold shadow hover:bg-green-700 transition inline-block"
 										>
 											Contact Me
-										</motion.button>
-
+										</motion.a>
 										<div
 											className="flex items-center gap-2 text-green-500 cursor-pointer hover:text-green-300 transition"
 											onClick={handleCopy}
@@ -358,34 +375,76 @@ export default function App() {
 									</h2>
 								</div>
 
-								<motion.div
-									initial="hidden"
-									whileInView="visible"
-									viewport={{ once: true }}
-									className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 text-center px-4"
-								>
-									{skills.map((skill, i) => (
-										<motion.div
-											key={i}
-											custom={i}
-											variants={itemVariants}
-											whileHover={{
-												scale: 1.1,
-												rotate: [0, 1.5, -1.5, 0],
-												boxShadow: "0 0 15px #22c55e",
-											}}
-											className="relative bg-white/10 backdrop-blur-md p-5 rounded-2xl border border-green-500 shadow-xl hover:shadow-green-300 transition-all duration-300 group"
-										>
-											<div className="flex flex-col items-center gap-3">
-												{skill.icon}
-												<p className="text-lg font-semibold text-gray-800 group-hover:text-green-600">
-													{skill.name}
-												</p>
-											</div>
-											<div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-10 h-1 bg-green-500 rounded-full opacity-0 group-hover:opacity-100 transition duration-300" />
-										</motion.div>
-									))}
-								</motion.div>
+								{/* Languages & Frameworks */}
+								<div className="mb-10">
+									<h3 className="text-2xl font-bold text-green-600 mb-4">
+										Languages & Frameworks
+									</h3>
+									<motion.div
+										initial="hidden"
+										whileInView="visible"
+										viewport={{ once: true }}
+										className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 text-center px-4"
+									>
+										{skills.map((skill, i) => (
+											<motion.div
+												key={i}
+												custom={i}
+												variants={itemVariants}
+												whileHover={{
+													scale: 1.1,
+													rotate: [0, 1.5, -1.5, 0],
+													boxShadow: "0 0 15px #22c55e",
+												}}
+												className="relative bg-white/10 backdrop-blur-md p-5 rounded-2xl border border-green-500 shadow-xl hover:shadow-green-300 transition-all duration-300 group"
+											>
+												<div className="flex flex-col items-center gap-3">
+													{skill.icon}
+													<p className="text-lg font-semibold text-gray-800 group-hover:text-green-600">
+														{skill.name}
+													</p>
+												</div>
+												<div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-10 h-1 bg-green-500 rounded-full opacity-0 group-hover:opacity-100 transition duration-300" />
+											</motion.div>
+										))}
+									</motion.div>
+								</div>
+
+								{/* Tools & Platforms */}
+								<div>
+									<h3 className="text-2xl font-bold text-green-600 mb-4">
+										Tools & Platforms
+									</h3>
+
+									<motion.div
+										initial="hidden"
+										whileInView="visible"
+										viewport={{ once: true }}
+										className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 text-center px-4"
+									>
+										{toolsAndPlatforms.map((tool, i) => (
+											<motion.div
+												key={i}
+												custom={i}
+												variants={itemVariants}
+												whileHover={{
+													scale: 1.1,
+													rotate: [0, 1.5, -1.5, 0],
+													boxShadow: "0 0 15px #22c55e",
+												}}
+												className="bg-white/10 backdrop-blur-md p-5 rounded-2xl border border-green-500 shadow-md hover:shadow-green-300 transition-all duration-300 group"
+											>
+												<div className="flex flex-col items-center gap-3">
+													{tool.icon}
+													<p className="text-lg font-semibold text-gray-800 group-hover:text-green-600">
+														{tool.name}
+													</p>
+												</div>
+												<div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-10 h-1 bg-green-500 rounded-full opacity-0 group-hover:opacity-100 transition duration-300" />
+											</motion.div>
+										))}
+									</motion.div>
+								</div>
 							</section>
 
 							<section
@@ -467,7 +526,7 @@ export default function App() {
 											className="mt-6 flex justify-center md:justify-start gap-6"
 										>
 											<a
-												href="https://linkedin.com/in/yourusername"
+												href="https://www.linkedin.com/in/dave-nickole-de-mesa-972683352"
 												target="_blank"
 												rel="noopener noreferrer"
 												className="text-gray-700 hover:text-green-600 transition text-2xl"
@@ -483,7 +542,7 @@ export default function App() {
 											</a>
 
 											<a
-												href="https://github.com/yourusername"
+												href="https://github.com/DevNickole"
 												target="_blank"
 												rel="noopener noreferrer"
 												className="text-gray-700 hover:text-green-600 transition text-2xl"
@@ -497,26 +556,11 @@ export default function App() {
 													<path d="M12 .5C5.65.5.5 5.65.5 12c0 5.1 3.3 9.4 7.8 10.9.6.1.8-.3.8-.6v-2.2c-3.2.7-3.9-1.5-3.9-1.5-.6-1.5-1.4-1.9-1.4-1.9-1.2-.8.1-.8.1-.8 1.3.1 2 1.3 2 1.3 1.2 2 3.2 1.4 4 .9.1-.9.5-1.4.8-1.8-2.5-.3-5.1-1.3-5.1-5.9 0-1.3.4-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2.9-.3 1.9-.4 2.8-.4s1.9.1 2.8.4c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.9 1.2 3.1 0 4.6-2.6 5.6-5.1 5.9.5.5.9 1.3.9 2.6v3.8c0 .3.2.7.8.6C20.7 21.4 24 17.1 24 12 24 5.65 18.35.5 12 .5z" />
 												</svg>
 											</a>
-
-											<a
-												href="https://twitter.com/yourusername"
-												target="_blank"
-												rel="noopener noreferrer"
-												className="text-gray-700 hover:text-green-600 transition text-2xl"
-											>
-												<svg
-													xmlns="http://www.w3.org/2000/svg"
-													fill="currentColor"
-													className="w-6 h-6"
-													viewBox="0 0 24 24"
-												>
-													<path d="M23.954 4.57c-.885.392-1.83.656-2.825.775 1.014-.609 1.794-1.574 2.163-2.723-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-2.723 0-4.924 2.201-4.924 4.917 0 .39.045.765.127 1.124-4.094-.205-7.725-2.165-10.151-5.144-.426.722-.666 1.561-.666 2.457 0 1.69.86 3.18 2.17 4.058-.8-.026-1.554-.245-2.212-.611v.061c0 2.362 1.68 4.338 3.918 4.782-.41.111-.843.171-1.287.171-.314 0-.615-.03-.916-.086.631 1.953 2.445 3.377 4.6 3.419-1.68 1.319-3.809 2.104-6.102 2.104-.395 0-.779-.023-1.158-.067 2.179 1.397 4.768 2.21 7.557 2.21 9.054 0 14-7.496 14-13.986 0-.21 0-.423-.015-.635.961-.689 1.8-1.56 2.46-2.548l-.047-.02z" />
-												</svg>
-											</a>
 										</motion.div>
 									</motion.div>
 								</div>
 							</section>
+							<ContactMe />
 						</main>
 
 						<footer className="bg-gray-100 text-black py-10">
